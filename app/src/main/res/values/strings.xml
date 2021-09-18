@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">SaratovMonuments</string>
+    <string name="app_name">Памятники Саратова</string>
+    <string name="action_bar_title_categories">Категории</string>
 </resources>
