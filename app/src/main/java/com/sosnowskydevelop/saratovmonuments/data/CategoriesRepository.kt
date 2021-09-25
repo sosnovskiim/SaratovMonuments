@@ -28,7 +28,10 @@ class CategoriesRepository(context: Context) {
 
         val cursor: Cursor = database.query(
             "Category",
-            arrayOf("_id", "_name"),
+            arrayOf(
+                "_id",
+                "_name",
+            ),
             null, null, null, null, null
         )
         var isEntryNotEmpty: Boolean = cursor.moveToFirst()
@@ -43,6 +46,8 @@ class CategoriesRepository(context: Context) {
     }
 
     fun getCategories(): Array<Category> = categories
+
+    fun getCategory(categoryId: Long): Category = categories[categoryId.toInt() - 1]
 
     companion object {
         // For Singleton instantiation

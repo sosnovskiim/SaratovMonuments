@@ -9,6 +9,18 @@
         android:id="@+id/categoriesFragment"
         android:name="com.sosnowskydevelop.saratovmonuments.fragments.CategoriesFragment"
         android:label="CategoriesFragment"
-        tools:layout="@layout/fragment_categories" />
+        tools:layout="@layout/fragment_categories">
+
+        <action
+            android:id="@+id/action_categoriesFragment_to_monumentsFragment"
+            app:destination="@id/monumentsFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/monumentsFragment"
+        android:name="com.sosnowskydevelop.saratovmonuments.fragments.MonumentsFragment"
+        android:label="MonumetnsFragment"
+        tools:layout="@layout/fragment_monuments" />
 
 </navigation>

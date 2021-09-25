@@ -7,7 +7,11 @@
         <entry key="..\:/Users/darki/AndroidStudioProjects/SaratovMonuments/app/src/main/res/layout/activity_image.xml" value="0.276268115942029" />
         <entry key="..\:/Users/darki/AndroidStudioProjects/SaratovMonuments/app/src/main/res/layout/activity_main.xml" value="0.276268115942029" />
         <entry key="..\:/Users/darki/AndroidStudioProjects/SaratovMonuments/app/src/main/res/layout/fragment_categories.xml" value="0.276268115942029" />
+        <entry key="..\:/Users/darki/AndroidStudioProjects/SaratovMonuments/app/src/main/res/layout/fragment_monumets.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/darki/AndroidStudioProjects/SaratovMonuments/app/src/main/res/layout/item_category.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/darki/AndroidStudioProjects/SaratovMonuments/app/src/main/res/layout/item_monument.xml" value="0.25769927536231885" />
         <entry key="..\:/Users/darki/AndroidStudioProjects/SaratovMonuments/app/src/main/res/layout/list_item_category.xml" value="0.276268115942029" />
+        <entry key="..\:/Users/darki/AndroidStudioProjects/SaratovMonuments/app/src/main/res/layout/list_item_monument.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>
