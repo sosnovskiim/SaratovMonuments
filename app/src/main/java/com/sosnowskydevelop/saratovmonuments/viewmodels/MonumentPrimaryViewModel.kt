@@ -6,18 +6,25 @@ import com.sosnowskydevelop.saratovmonuments.data.Category
 import com.sosnowskydevelop.saratovmonuments.data.Monument
 import com.sosnowskydevelop.saratovmonuments.data.MonumentsRepository
 
-class MonumentsViewModel(
+class MonumentPrimaryViewModel(
     private val categoriesRepository: CategoriesRepository,
     private val monumentsRepository: MonumentsRepository,
 ) : ViewModel() {
     private var category: Category? = null
     val categoryName: String? get() = category?.name
-    var monuments: Array<Monument> = arrayOf()
+    private var monument: Monument? = null
+    val monumentPhotoName: String? get() = monument?.photoName
+    val monumentName: String? get() = monument?.name
 
     fun initData(
-        categoryId: Long,
+        categoryId: Long?,
+        monumentId: Long?,
     ) {
-        category = categoriesRepository.getCategory(categoryId = categoryId)
-        monuments = monumentsRepository.getMonuments(categoryId = categoryId)
+        if (categoryId != null) {
+            category = categoriesRepository.getCategory(categoryId = categoryId)
+        }
+        if (monumentId != null) {
+            monument = monumentsRepository.getMonument(monumentId = monumentId)
+        }
     }
 }

@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_categories">
 
         <action
-            android:id="@+id/action_categoriesFragment_to_monumentsFragment"
+            android:id="@+id/action_from_categoriesFragment_to_monumentsFragment"
             app:destination="@id/monumentsFragment" />
 
     </fragment>
@@ -20,7 +20,19 @@
     <fragment
         android:id="@+id/monumentsFragment"
         android:name="com.sosnowskydevelop.saratovmonuments.fragments.MonumentsFragment"
-        android:label="MonumetnsFragment"
-        tools:layout="@layout/fragment_monuments" />
+        android:label="MonumentsFragment"
+        tools:layout="@layout/fragment_monuments">
+
+        <action
+            android:id="@+id/action_from_monumentsFragment_to_monumentPrimaryFragment"
+            app:destination="@id/monumentPrimaryFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/monumentPrimaryFragment"
+        android:name="com.sosnowskydevelop.saratovmonuments.fragments.MonumentPrimaryFragment"
+        android:label="MonumentPrimaryFragment"
+        tools:layout="@layout/fragment_monument_primary" />
 
 </navigation>

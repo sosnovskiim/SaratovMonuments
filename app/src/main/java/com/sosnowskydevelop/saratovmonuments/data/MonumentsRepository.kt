@@ -10,6 +10,18 @@ import java.io.IOException
 class MonumentsRepository(context: Context) {
     private var monuments: Array<Monument> = arrayOf()
 
+    fun getMonuments(categoryId: Long): Array<Monument> {
+        var res: Array<Monument> = arrayOf()
+        monuments.forEach { monument ->
+            if (monument.categoryId == categoryId) {
+                res += monument
+            }
+        }
+        return res
+    }
+
+    fun getMonument(monumentId: Long): Monument = monuments[monumentId.toInt() - 1]
+
     init {
         val databaseHelper = DatabaseHelper(context)
         val database: SQLiteDatabase
@@ -59,16 +71,6 @@ class MonumentsRepository(context: Context) {
             isEntryNotEmpty = cursor.moveToNext()
         }
         cursor.close()
-    }
-
-    fun getMonuments(categoryId: Long): Array<Monument> {
-        var res: Array<Monument> = arrayOf()
-        monuments.forEach { monument ->
-            if (monument.categoryId == categoryId) {
-                res += monument
-            }
-        }
-        return res
     }
 
     companion object {

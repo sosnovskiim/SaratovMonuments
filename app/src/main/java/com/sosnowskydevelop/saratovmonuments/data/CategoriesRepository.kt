@@ -10,6 +10,10 @@ import java.io.IOException
 class CategoriesRepository(context: Context) {
     private var categories: Array<Category> = arrayOf()
 
+    fun getCategories(): Array<Category> = categories
+
+    fun getCategory(categoryId: Long): Category = categories[categoryId.toInt() - 1]
+
     init {
         val databaseHelper = DatabaseHelper(context)
         val database: SQLiteDatabase
@@ -44,10 +48,6 @@ class CategoriesRepository(context: Context) {
         }
         cursor.close()
     }
-
-    fun getCategories(): Array<Category> = categories
-
-    fun getCategory(categoryId: Long): Category = categories[categoryId.toInt() - 1]
 
     companion object {
         // For Singleton instantiation

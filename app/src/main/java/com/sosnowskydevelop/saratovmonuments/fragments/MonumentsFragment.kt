@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.sosnowskydevelop.saratovmonuments.R
 import com.sosnowskydevelop.saratovmonuments.adapters.MonumentsListAdapter
 import com.sosnowskydevelop.saratovmonuments.databinding.FragmentMonumentsBinding
 import com.sosnowskydevelop.saratovmonuments.utilities.BUNDLE_KEY_CATEGORY_ID_FROM_CATEGORIES_TO_MONUMENTS
@@ -49,16 +48,16 @@ class MonumentsFragment : Fragment() {
         setFragmentResultListener(
             requestKey = REQUEST_KEY_CATEGORY_ID_FROM_CATEGORIES_TO_MONUMENTS
         ) { _, bundle ->
-            viewModel.initMonuments(
+            viewModel.initData(
                 categoryId = bundle.getLong(
                     BUNDLE_KEY_CATEGORY_ID_FROM_CATEGORIES_TO_MONUMENTS
                 )
             )
 
-            listAdapter.monuments = viewModel.monuments
-
             (requireActivity() as AppCompatActivity).supportActionBar?.title =
                 viewModel.categoryName
+
+            listAdapter.monuments = viewModel.monuments
         }
     }
 }

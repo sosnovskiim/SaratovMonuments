@@ -39,7 +39,7 @@ class CategoriesListAdapter(
                 )
             )
             fragment.findNavController()
-                .navigate(R.id.action_categoriesFragment_to_monumentsFragment)
+                .navigate(R.id.action_from_categoriesFragment_to_monumentsFragment)
         }
     }
 
