@@ -55,9 +55,12 @@ class MonumentsFragment : Fragment() {
             )
 
             (requireActivity() as AppCompatActivity).supportActionBar?.title =
-                viewModel.categoryName
+                viewModel.categoryName // First opening of the fragment.
 
             listAdapter.monuments = viewModel.monuments
         }
+
+        (requireActivity() as AppCompatActivity).supportActionBar?.title =
+            viewModel.categoryName // Return to the fragment.
     }
 }
