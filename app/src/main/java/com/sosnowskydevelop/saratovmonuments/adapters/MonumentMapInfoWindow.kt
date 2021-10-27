@@ -14,15 +14,11 @@ import org.osmdroid.views.overlay.infowindow.InfoWindow
 class MonumentMapInfoWindow(
     mapView: MapView,
     private val fragment: Fragment,
-//    private val monumentName: String,
     private val monumentPointLatitude: Double,
     private val monumentPointLongitude: Double,
 ) : InfoWindow(R.layout.info_window_monument_map, mapView) {
     override fun onOpen(item: Any?) {
         closeAllInfoWindowsOn(mapView)
-
-//        val monumentMarkerName: TextView = mView.findViewById(R.id.monumentMarkerName)
-//        monumentMarkerName.text = monumentName
 
         val monumentGo: TextView = mView.findViewById(R.id.monumentGo)
         monumentGo.setOnClickListener {

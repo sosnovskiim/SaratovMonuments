@@ -77,7 +77,6 @@ class MonumentMapFragment : Fragment(), MapEventsReceiver {
         monumentMarker.infoWindow = MonumentMapInfoWindow(
             mapView = binding.monumentMapView,
             fragment = this,
-//            monumentName = viewModel.monumentName!!,
             monumentPointLatitude = viewModel.monumentPointLatitude!!,
             monumentPointLongitude = viewModel.monumentPointLongitude!!,
         )

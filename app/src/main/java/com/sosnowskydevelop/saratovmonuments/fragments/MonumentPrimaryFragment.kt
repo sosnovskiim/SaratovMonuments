@@ -48,8 +48,11 @@ class MonumentPrimaryFragment : Fragment() {
             )
 
             (requireActivity() as AppCompatActivity).supportActionBar?.title =
-                viewModel.categoryName
+                viewModel.categoryName // First opening of the fragment.
         }
+
+        (requireActivity() as AppCompatActivity).supportActionBar?.title =
+            viewModel.categoryName // Return to the fragment.
 
         setFragmentResultListener(
             requestKey = REQUEST_KEY_MONUMENT_ID_FROM_MONUMENTS_TO_MONUMENT_PRIMARY
@@ -61,21 +64,14 @@ class MonumentPrimaryFragment : Fragment() {
                 ),
             )
 
-            val monumentImageResId: Int = resources.getIdentifier(
-                viewModel.monumentPhotoName,
-                "drawable",
-                "com.sosnowskydevelop.saratovmonuments"
-            )
-            binding.monumentImage.setImageResource(monumentImageResId)
-            binding.monumentImage.setOnClickListener {
-                val intent = Intent(requireActivity().applicationContext, ImageActivity::class.java)
-                intent.putExtra("imageId", monumentImageResId)
-                intent.putExtra("title", viewModel.monumentName)
-                startActivity(intent)
-            }
-
-            binding.monumentName.text = viewModel.monumentName
+            // First opening of the fragment.
+            setMonumentPhoto()
+            setMonumentName()
         }
+
+        // Return to the fragment.
+        setMonumentPhoto()
+        setMonumentName()
 
         binding.monumentMap.setOnClickListener {
             setFragmentResult(
@@ -88,5 +84,26 @@ class MonumentPrimaryFragment : Fragment() {
             findNavController()
                 .navigate(R.id.action_from_monumentPrimaryFragment_to_monumentMapFragment)
         }
+    }
+
+    private fun setMonumentPhoto() {
+        if (viewModel.monumentPhotoName != null) {
+            val monumentImageResId: Int = resources.getIdentifier(
+                viewModel.monumentPhotoName,
+                "drawable",
+                "com.sosnowskydevelop.saratovmonuments"
+            )
+            binding.monumentPhoto.setImageResource(monumentImageResId)
+            binding.monumentPhoto.setOnClickListener {
+                val intent = Intent(requireActivity().applicationContext, ImageActivity::class.java)
+                intent.putExtra("imageId", monumentImageResId)
+                intent.putExtra("title", viewModel.monumentName)
+                startActivity(intent)
+            }
+        }
+    }
+
+    private fun setMonumentName() {
+        binding.monumentName.text = viewModel.monumentName
     }
 }
