@@ -51,11 +51,14 @@ class MonumentMapFragment : Fragment(), MapEventsReceiver {
                 )
             )
 
-            (requireActivity() as AppCompatActivity).supportActionBar?.title =
-                viewModel.monumentName
-
+            setActionBarTitle()
             initMapView()
         }
+    }
+
+    private fun setActionBarTitle() {
+        (requireActivity() as AppCompatActivity).supportActionBar?.title =
+            viewModel.monumentName
     }
 
     private fun initMapView() {

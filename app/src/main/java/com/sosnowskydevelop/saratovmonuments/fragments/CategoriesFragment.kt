@@ -34,13 +34,18 @@ class CategoriesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
-        (requireActivity() as AppCompatActivity).supportActionBar?.title =
-            resources.getString(R.string.action_bar_title_categories)
+
+        setActionBarTitle()
 
         binding.categories.layoutManager = LinearLayoutManager(requireContext())
         binding.categories.adapter = CategoriesListAdapter(
             categories = viewModel.categories,
             fragment = this,
         )
+    }
+
+    private fun setActionBarTitle() {
+        (requireActivity() as AppCompatActivity).supportActionBar?.title =
+            resources.getString(R.string.action_bar_title_categories)
     }
 }

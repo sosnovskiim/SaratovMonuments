@@ -47,12 +47,10 @@ class MonumentPrimaryFragment : Fragment() {
                 monumentId = null,
             )
 
-            (requireActivity() as AppCompatActivity).supportActionBar?.title =
-                viewModel.categoryName // First opening of the fragment.
+            setActionBarTitle() // First opening of the fragment.
         }
 
-        (requireActivity() as AppCompatActivity).supportActionBar?.title =
-            viewModel.categoryName // Return to the fragment.
+        setActionBarTitle() // Return to the fragment.
 
         setFragmentResultListener(
             requestKey = REQUEST_KEY_MONUMENT_ID_FROM_MONUMENTS_TO_MONUMENT_PRIMARY
@@ -84,6 +82,11 @@ class MonumentPrimaryFragment : Fragment() {
             findNavController()
                 .navigate(R.id.action_from_monumentPrimaryFragment_to_monumentMapFragment)
         }
+    }
+
+    private fun setActionBarTitle() {
+        (requireActivity() as AppCompatActivity).supportActionBar?.title =
+            viewModel.categoryName
     }
 
     private fun setMonumentPhoto() {
