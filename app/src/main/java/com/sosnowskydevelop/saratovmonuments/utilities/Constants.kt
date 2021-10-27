@@ -11,6 +11,10 @@ const val REQUEST_KEY_CATEGORY_ID_FROM_MONUMENTS_TO_MONUMENT_PRIMARY =
 const val BUNDLE_KEY_CATEGORY_ID_FROM_MONUMENTS_TO_MONUMENT_PRIMARY =
     "bundleKeyCategoryIdFromMonumentsToMonumentPrimary"
 const val REQUEST_KEY_MONUMENT_ID_FROM_MONUMENTS_TO_MONUMENT_PRIMARY =
-    "requestKeyMonumentIdFromMonumentsToMonumentPrimary"
+        "requestKeyMonumentIdFromMonumentsToMonumentPrimary"
 const val BUNDLE_KEY_MONUMENT_ID_FROM_MONUMENTS_TO_MONUMENT_PRIMARY =
     "bundleKeyMonumentIdFromMonumentsToMonumentPrimary"
+const val REQUEST_KEY_MONUMENT_ID_FROM_MONUMENT_PRIMARY_TO_MONUMENT_MAP =
+    "requestKeyMonumentIdFromMonumentPrimaryToMonumentMap"
+const val BUNDLE_KEY_MONUMENT_ID_FROM_MONUMENT_PRIMARY_TO_MONUMENT_MAP =
+    "bundleKeyMonumentIdFromMonumentPrimaryToMonumentMap"

@@ -3,4 +3,5 @@
     <string name="action_bar_title_categories">Категории</string>
     <string name="monument_description">Описание</string>
     <string name="monument_map">Карта</string>
+    <string name="monument_go">Поехали</string>
 </resources>

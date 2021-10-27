@@ -33,6 +33,18 @@
         android:id="@+id/monumentPrimaryFragment"
         android:name="com.sosnowskydevelop.saratovmonuments.fragments.MonumentPrimaryFragment"
         android:label="MonumentPrimaryFragment"
-        tools:layout="@layout/fragment_monument_primary" />
+        tools:layout="@layout/fragment_monument_primary">
+
+        <action
+            android:id="@+id/action_from_monumentPrimaryFragment_to_monumentMapFragment"
+            app:destination="@id/monumentMapFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/monumentMapFragment"
+        android:name="com.sosnowskydevelop.saratovmonuments.fragments.MonumentMapFragment"
+        android:label="MonumentMapFragment"
+        tools:layout="@layout/fragment_monument_map" />
 
 </navigation>

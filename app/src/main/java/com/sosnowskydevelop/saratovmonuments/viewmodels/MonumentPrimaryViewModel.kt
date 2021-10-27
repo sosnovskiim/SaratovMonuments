@@ -15,6 +15,7 @@ class MonumentPrimaryViewModel(
     private var monument: Monument? = null
     val monumentPhotoName: String? get() = monument?.photoName
     val monumentName: String? get() = monument?.name
+    val monumentId: Long? get() = monument?.id
 
     fun initData(
         categoryId: Long?,
