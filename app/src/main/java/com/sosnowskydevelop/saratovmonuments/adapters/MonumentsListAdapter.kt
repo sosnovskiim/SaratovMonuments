@@ -44,8 +44,13 @@ class MonumentsListAdapter(
                             to monuments[position].id
                 )
             )
-            fragment.findNavController()
-                .navigate(R.id.action_from_monumentsFragment_to_monumentPrimaryFragment)
+            try {
+                fragment.findNavController()
+                    .navigate(R.id.action_from_monumentsFragment_to_monumentPrimaryFragment)
+            } catch (e: IllegalArgumentException) {
+                fragment.findNavController()
+                    .navigate(R.id.action_from_monumentSearchFragment_to_monumentPrimaryFragment)
+            }
         }
     }
 

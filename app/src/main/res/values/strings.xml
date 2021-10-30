@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">Памятники Саратова</string>
     <string name="action_bar_title_categories">Категории</string>
+    <string name="action_bar_title_monument_search">Поиск памятника</string>
     <string name="monument_description">Описание</string>
     <string name="monument_map">Карта</string>
     <string name="monument_go">Поехали</string>
+    <string name="monument_search_hint">Поиск памятника по названию</string>
+    <string name="nothing_found">Ничего не найдено</string>
+    <string name="search">Поиск</string>
+    <string name="navigation">Навигация</string>
 </resources>

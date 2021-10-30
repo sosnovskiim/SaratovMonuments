@@ -1,14 +1,19 @@
 package com.sosnowskydevelop.saratovmonuments.fragments
 
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.preference.PreferenceManager
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.sosnowskydevelop.saratovmonuments.R
 import com.sosnowskydevelop.saratovmonuments.adapters.MonumentMapInfoWindow
 import com.sosnowskydevelop.saratovmonuments.databinding.FragmentMonumentMapBinding
 import com.sosnowskydevelop.saratovmonuments.utilities.BUNDLE_KEY_MONUMENT_ID_FROM_MONUMENT_PRIMARY_TO_MONUMENT_MAP
@@ -28,6 +33,45 @@ class MonumentMapFragment : Fragment(), MapEventsReceiver {
 
     private val viewModel: MonumentMapViewModel by viewModels {
         InjectorUtils.provideMonumentMapViewModelFactory(context = requireContext())
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_monument_navigation, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.navigation -> {
+                val monumentUri = Uri.parse(
+                    "yandexnavi://build_route_on_map?" +
+                            "lat_to=${viewModel.monumentPointLatitude}" +
+                            "&lon_to=${viewModel.monumentPointLongitude}"
+                )
+                val monumentIntent = Intent(
+                    Intent.ACTION_VIEW, monumentUri
+                )
+                try {
+                    ContextCompat.startActivity(
+                        requireContext(), monumentIntent, null
+                    )
+                } catch (e: ActivityNotFoundException) {
+                    Toast.makeText(
+                        requireContext(),
+                        "Приложение Яндекс.Навигатор не найдено",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+                true
+            }
+            else -> {
+                super.onOptionsItemSelected(item)
+            }
+        }
     }
 
     override fun onCreateView(
@@ -79,9 +123,7 @@ class MonumentMapFragment : Fragment(), MapEventsReceiver {
         monumentMarker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_CENTER)
         monumentMarker.infoWindow = MonumentMapInfoWindow(
             mapView = binding.monumentMapView,
-            fragment = this,
-            monumentPointLatitude = viewModel.monumentPointLatitude!!,
-            monumentPointLongitude = viewModel.monumentPointLongitude!!,
+            monumentName = viewModel.monumentName!!,
         )
         binding.monumentMapView.overlays.add(monumentMarker)
 

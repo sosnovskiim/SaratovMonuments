@@ -11,6 +11,7 @@ class MonumentsViewModel(
     private val monumentsRepository: MonumentsRepository,
 ) : ViewModel() {
     private var category: Category? = null
+    val categoryId: Long? get() = category?.id
     val categoryName: String? get() = category?.name
     var monuments: Array<Monument> = arrayOf()
 

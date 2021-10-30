@@ -12,8 +12,24 @@
         tools:layout="@layout/fragment_categories">
 
         <action
+            android:id="@+id/action_from_categoriesFragment_to_monumentSearchFragment"
+            app:destination="@id/monumentSearchFragment" />
+
+        <action
             android:id="@+id/action_from_categoriesFragment_to_monumentsFragment"
             app:destination="@id/monumentsFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/monumentSearchFragment"
+        android:name="com.sosnowskydevelop.saratovmonuments.fragments.MonumentSearchFragment"
+        android:label="MonumentSearchFragment"
+        tools:layout="@layout/fragment_monument_search">
+
+        <action
+            android:id="@+id/action_from_monumentSearchFragment_to_monumentPrimaryFragment"
+            app:destination="@id/monumentPrimaryFragment" />
 
     </fragment>
 
@@ -22,6 +38,10 @@
         android:name="com.sosnowskydevelop.saratovmonuments.fragments.MonumentsFragment"
         android:label="MonumentsFragment"
         tools:layout="@layout/fragment_monuments">
+
+        <action
+            android:id="@+id/action_from_monumentsFragment_to_monumentSearchFragment"
+            app:destination="@id/monumentSearchFragment" />
 
         <action
             android:id="@+id/action_from_monumentsFragment_to_monumentPrimaryFragment"

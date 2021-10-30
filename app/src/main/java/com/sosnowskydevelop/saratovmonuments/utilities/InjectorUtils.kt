@@ -3,10 +3,7 @@ package com.sosnowskydevelop.saratovmonuments.utilities
 import android.content.Context
 import com.sosnowskydevelop.saratovmonuments.data.CategoriesRepository
 import com.sosnowskydevelop.saratovmonuments.data.MonumentsRepository
-import com.sosnowskydevelop.saratovmonuments.viewmodels.CategoriesViewModelFactory
-import com.sosnowskydevelop.saratovmonuments.viewmodels.MonumentMapViewModelFactory
-import com.sosnowskydevelop.saratovmonuments.viewmodels.MonumentPrimaryViewModelFactory
-import com.sosnowskydevelop.saratovmonuments.viewmodels.MonumentsViewModelFactory
+import com.sosnowskydevelop.saratovmonuments.viewmodels.*
 
 object InjectorUtils {
     private fun getCategoriesRepository(context: Context) =
@@ -30,6 +27,10 @@ object InjectorUtils {
     )
 
     fun provideMonumentMapViewModelFactory(context: Context) = MonumentMapViewModelFactory(
+        monumentsRepository = getMonumentsRepository(context = context),
+    )
+
+    fun provideMonumentSearchViewModelFactory(context: Context) = MonumentSearchViewModelFactory(
         monumentsRepository = getMonumentsRepository(context = context),
     )
 }

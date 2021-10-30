@@ -1,12 +1,11 @@
 package com.sosnowskydevelop.saratovmonuments.fragments
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sosnowskydevelop.saratovmonuments.R
 import com.sosnowskydevelop.saratovmonuments.adapters.CategoriesListAdapter
@@ -19,6 +18,27 @@ class CategoriesFragment : Fragment() {
 
     private val viewModel: CategoriesViewModel by viewModels {
         InjectorUtils.provideCategoriesViewModelFactory(context = requireContext())
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_monument_search, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.search -> {
+                findNavController().navigate(R.id.action_from_categoriesFragment_to_monumentSearchFragment)
+                true
+            }
+            else -> {
+                super.onOptionsItemSelected(item)
+            }
+        }
     }
 
     override fun onCreateView(

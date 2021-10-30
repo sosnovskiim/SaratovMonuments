@@ -20,11 +20,51 @@ class MonumentsRepository(context: Context) {
         return res
     }
 
+    fun getMonumentsBySearchRequest(
+        searchRequest: String,
+        categoryId: Long?,
+    ): Array<Monument> {
+        var result: Array<Monument> = arrayOf()
+
+        val cursor: Cursor = if (categoryId == null) {
+            database.rawQuery(
+                "SELECT _id, _categoryId, _name, _photoName, _installationDate, _authors, _description, _links, _pointLatitude, _pointLongitude FROM Monument WHERE UPPER(_name) LIKE UPPER('%$searchRequest%')",
+                null
+            )
+        } else {
+            database.rawQuery(
+                "SELECT _id, _categoryId, _name, _photoName, _installationDate, _authors, _description, _links, _pointLatitude, _pointLongitude FROM Monument WHERE UPPER(_name) LIKE UPPER('%$searchRequest%') AND _categoryId = $categoryId",
+                null
+            )
+        }
+
+        var isEntryNotEmpty: Boolean = cursor.moveToFirst()
+        while (isEntryNotEmpty) {
+            result += Monument(
+                _id = cursor.getLong(cursor.getColumnIndex("_id")),
+                _categoryId = cursor.getLong(cursor.getColumnIndex("_categoryId")),
+                _name = cursor.getString(cursor.getColumnIndex("_name")),
+                _photoName = cursor.getString(cursor.getColumnIndex("_photoName")),
+                _installationDate = cursor.getString(cursor.getColumnIndex("_installationDate")),
+                _authors = cursor.getString(cursor.getColumnIndex("_authors")),
+                _description = cursor.getString(cursor.getColumnIndex("_description")),
+                _links = cursor.getString(cursor.getColumnIndex("_links")),
+                _pointLatitude = cursor.getDouble(cursor.getColumnIndex("_pointLatitude")),
+                _pointLongitude = cursor.getDouble(cursor.getColumnIndex("_pointLongitude")),
+            )
+            isEntryNotEmpty = cursor.moveToNext()
+        }
+        cursor.close()
+
+        return result
+    }
+
     fun getMonument(monumentId: Long): Monument = monuments[monumentId.toInt() - 1]
+
+    private val database: SQLiteDatabase
 
     init {
         val databaseHelper = DatabaseHelper(context)
-        val database: SQLiteDatabase
 
         try {
             databaseHelper.updateDataBase()
