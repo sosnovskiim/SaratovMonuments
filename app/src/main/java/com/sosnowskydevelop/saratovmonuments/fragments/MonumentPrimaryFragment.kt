@@ -71,6 +71,18 @@ class MonumentPrimaryFragment : Fragment() {
         setMonumentPhoto()
         setMonumentName()
 
+        binding.monumentDescription.setOnClickListener {
+            setFragmentResult(
+                requestKey = REQUEST_KEY_MONUMENT_ID_FROM_MONUMENT_PRIMARY_TO_MONUMENT_DESCRIPTION,
+                result = bundleOf(
+                    BUNDLE_KEY_MONUMENT_ID_FROM_MONUMENT_PRIMARY_TO_MONUMENT_DESCRIPTION
+                            to viewModel.monumentId
+                )
+            )
+            findNavController()
+                .navigate(R.id.action_from_monumentPrimaryFragment_to_monumentDescriptionFragment)
+        }
+
         binding.monumentMap.setOnClickListener {
             setFragmentResult(
                 requestKey = REQUEST_KEY_MONUMENT_ID_FROM_MONUMENT_PRIMARY_TO_MONUMENT_MAP,

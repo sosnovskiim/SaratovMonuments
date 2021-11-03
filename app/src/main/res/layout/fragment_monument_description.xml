@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="4dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/monumentInstallationDateTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/monument_installation_date_title"
+                android:textSize="32sp" />
+
+            <TextView
+                android:id="@+id/monumentInstallationDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:textSize="24sp"
+                tools:text="26 мая 1999" />
+
+            <TextView
+                android:id="@+id/monumentAuthorsTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/monument_authors_title"
+                android:textSize="32sp" />
+
+            <TextView
+                android:id="@+id/monumentAuthors"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:textSize="24sp"
+                tools:text="Константин Сергеевич Суминов" />
+
+            <TextView
+                android:id="@+id/monumentDescriptionTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/monument_description_title"
+                android:textSize="32sp" />
+
+            <TextView
+                android:id="@+id/monumentDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:textSize="24sp"
+                tools:text="А.С.Пушкин – величайший русский поэт и писатель, родоначальник новой русской литературы, создатель русского литературного языка.\n\nЕще некоторое время назад в «Липках» была целая галерея бюстов великих людей. Сегодня стоит лишь Пушкин. На мраморной колонне серебренный бюст писателя. На колонне – известная на весь мир подпись.\nПамятник установлен на дальней «правой» аллее парка. Чтобы быстро его найти в «Липки» нужно зайти с углу улиц Радищева и Сакко и Ванцетти. Перед памятником цветник, вокруг которого установлены скамеечки.\nБюст Александра Сергеевича был торжественно открыт весной 1999 года в рамках празднования 200-летия со дня рождения поэта. На высоком мраморном постаменте выгравирован автограф Пушкина.Бюст Александера Сергеевича выполнен скульптором К.С.Суминовым" />
+
+            <TextView
+                android:id="@+id/monumentLinksTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/monument_links_title"
+                android:textSize="32sp" />
+
+            <TextView
+                android:id="@+id/monumentLinks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:autoLink="web"
+                android:textSize="24sp"
+                tools:text="https://saratovmer.ru/o_saratove/dostoprimechatelnosti/dostinfo/224/" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>

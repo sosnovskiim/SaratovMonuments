@@ -56,10 +56,20 @@
         tools:layout="@layout/fragment_monument_primary">
 
         <action
+            android:id="@+id/action_from_monumentPrimaryFragment_to_monumentDescriptionFragment"
+            app:destination="@id/monumentDescriptionFragment" />
+
+        <action
             android:id="@+id/action_from_monumentPrimaryFragment_to_monumentMapFragment"
             app:destination="@id/monumentMapFragment" />
 
     </fragment>
+
+    <fragment
+        android:id="@+id/monumentDescriptionFragment"
+        android:name="com.sosnowskydevelop.saratovmonuments.fragments.MonumentDescriptionFragment"
+        android:label="MonumentDescriptionFragment"
+        tools:layout="@layout/fragment_monument_description" />
 
     <fragment
         android:id="@+id/monumentMapFragment"
