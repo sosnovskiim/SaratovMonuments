@@ -11,13 +11,14 @@ class MonumentsRepository(context: Context) {
     private var monuments: Array<Monument> = arrayOf()
 
     fun getMonuments(categoryId: Long): Array<Monument> {
-        var res: Array<Monument> = arrayOf()
+        var result: Array<Monument> = arrayOf()
         monuments.forEach { monument ->
             if (monument.categoryId == categoryId) {
-                res += monument
+                result += monument
             }
         }
-        return res
+        result.sortBy { it.name }
+        return result
     }
 
     fun getMonumentsBySearchRequest(
@@ -55,6 +56,8 @@ class MonumentsRepository(context: Context) {
             isEntryNotEmpty = cursor.moveToNext()
         }
         cursor.close()
+
+        result.sortBy { it.name }
 
         return result
     }
