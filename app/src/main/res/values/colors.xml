@@ -3,13 +3,13 @@
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
-    <color name="brown_800">#FF4E342E</color>
-    <color name="brown_900">#FF3E2723</color>
+    <color name="green_800">#FF5F6B51</color>
+    <color name="green_900">#FF59624F</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="primary">#FFA1887F</color>
-    <color name="background">#FFD7CCC8</color>
-    <color name="background_button">#FFBCAAA4</color>
-    <color name="background_button_pressed">#FF8D6E63</color>
+    <color name="primary">#FF656E5B</color>
+    <color name="background">#FFFFFFFF</color>
+    <color name="background_button">#9BAA8B</color>
+    <color name="background_button_pressed">#7E8A70</color>
 </resources>
