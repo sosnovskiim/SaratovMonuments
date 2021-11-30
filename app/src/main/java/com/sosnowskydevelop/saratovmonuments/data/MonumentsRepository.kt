@@ -62,7 +62,14 @@ class MonumentsRepository(context: Context) {
         return result
     }
 
-    fun getMonument(monumentId: Long): Monument = monuments[monumentId.toInt() - 1]
+    fun getMonument(monumentId: Long): Monument? {
+        monuments.forEach { monument ->
+            if (monument.id == monumentId) {
+                return monument
+            }
+        }
+        return null
+    }
 
     private val database: SQLiteDatabase
 
